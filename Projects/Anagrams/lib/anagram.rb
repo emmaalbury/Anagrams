@@ -3,23 +3,12 @@ class Anagrams
   def initialize
     @length_list = []
     @split_word = []
-    @sorted_words = {}
-    @sorted_list =[]
+    @sorted_list = {}
   end
 
   def split(word)
     @split_word << word.split('')
     @split_word
-  end
-
-  def sort_letters(word)
-    sorted_word = word.chars.sort(&:casecmp).join
-    puts sorted_word
-    sorted_words = Hash.new[sorted_word]
-    @length_list.each do |word|
-      @sorted_list << word.chars.sort(&:casecmp).join
-    end
-    puts @sorted_list
   end
 
   def check_length(word, list)
@@ -29,6 +18,14 @@ class Anagrams
       end
     end
     @length_list
+  end
+
+  def sort_letters(word)
+    sorted_word = word.chars.sort(&:casecmp).join
+    @length_list.each do |w|
+      @sorted_list[w] = w.chars.sort(&:casecmp).join
+    end
+    p @sorted_list
   end
 
 end

@@ -27,10 +27,11 @@ describe Anagrams do
     end
   end
 
-  # describe "#anagrams" do
-  #   it "returns a lits of anagrams" do
-  #     expect(anagram.anagrams).to eq ['came','acme']
-  #   end
-  # end
+  describe "#anagrams" do
+    it "returns a list of anagrams" do
+      anagram.instance_variable_set(:@anagram_list, ['came','acme'])
+      expect(anagram.anagrams('mace')).to eq ['came','acme']
+    end
+  end
 
 end

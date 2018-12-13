@@ -12,16 +12,25 @@ describe Anagrams do
 
   describe "#check_length" do
     it "matches length of words" do
-      expect(anagram.check_length('mace', ['came', 'dog', 'Emma', 'base', 'best', 'pot', 'acme',\
-         'sloppy', 'camel', 'remain', 'scare'])).to eq ['came', 'Emma', 'base', 'best', 'acme']
+      expect(anagram.check_length('mace', ['came', 'dog', 'Emma', 'base',\
+     'best', 'pot', 'acme', 'sloppy', 'camel', 'remain', 'scare'])).to eq \
+     ['came', 'Emma', 'base', 'best', 'acme']
     end
   end
 
   describe '#sort_letters' do
     it "sorts letters in words alphabetically" do
-      anagram.instance_variable_set(:@length_list, ['came', 'Emma', 'base', 'best', 'acme'])
-      expect(anagram.sort_letters('mace')).to eq ['acem', 'aEmm', 'abes','best','acem']
+      anagram.instance_variable_set(:@length_list, ['came', 'Emma', 'base',\
+      'best', 'acme'])
+      expect(anagram.sort_letters('mace')).to eq ({"came"=>"acem", "Emma"=>"aEmm"\
+      , "base"=>"abes", "best"=>"best", "acme"=>"acem"})
     end
   end
+
+  # describe "#anagrams" do
+  #   it "returns a lits of anagrams" do
+  #     expect(anagram.anagrams).to eq ['came','acme']
+  #   end
+  # end
 
 end
